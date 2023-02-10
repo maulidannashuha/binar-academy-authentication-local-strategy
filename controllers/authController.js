@@ -13,14 +13,11 @@ module.exports = {
         })
     },
     loginForm: (req, res) => {
-        console.log('login form')
         res.render('login')
     },
-    login: (req, res) => {
-        return passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-            failureFlash: true
-        })
-    }
+    login: passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    })
 }
